@@ -1,0 +1,55 @@
+body {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  background-color: bisque;
+}
+h1 {
+  font-size: 80px;
+  margin-bottom: -20px;
+}
+h2 {
+  font-size: 50px;
+  text-align: left;
+  margin-left: 20%;
+}
+ol {
+  font-family:
+    Comic Sans MS,
+    cursive,
+    sans-serif;
+  font-size: 40px;
+  display: inline-block;
+}
+img {
+  border-radius: 20px;
+  height: auto;
+  width: auto;
+  object-fit: cover; /* Обрезает изображение, чтобы заполнить контейнер */
+  max-height: 300px;
+  box-shadow: 0 4px 10px rgb(0, 0, 0);
+  margin: 50px;
+  padding: 10px;
+}
+button {
+  font-family:
+    Comic Sans MS,
+    cursive,
+    sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  animation: blink 1s infinite; /* Анимация мигания */
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+button:active {
+  background-color: #45a049;
+}
