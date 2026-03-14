@@ -7,12 +7,19 @@
   <body>
     <nav class="navbar">
       <ul class="nav-list">
-        <li><a href="#about">About</a></li>
         <li><a href="index.html">Sākums</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#teksta-apstrade">Teksta apstrāde</a></li>
         <li><a href="#izklajlapas">Izklājlapas</a></li>
         <li><a href="#video">Video</a></li>
-        <li><a href="#individuala-tema">Individuāla tēma</a></li>
+        <li><a href="index2.html">Individuāla tēma</a></li>
+        <li class="dropdown">
+          <a href="#atteli">Attēlu apstrāde</a>
+          <ul class="submenu"> <!-- выпадающее меню -->
+            <li><a href="#rakstgrafika">Rakstgrafika</a></li> <!-- подпункт 1 -->
+            <li><a href="#vektorgrafika">Vektorgrafika</a></li> <!-- подпункт 2 -->
+          </ul>
+        </li>
       </ul>
     </nav>
     <h1>Ko es apgūvu datorikas stundas?</h1>
@@ -32,7 +39,32 @@
         alt="TinkerCad"
       />
     </ol>
-    <br />
-    <a href="index2.html"> <button>ТРЕВОГА УВАГА ATTENTION !!!</button></a>
+    <div class="wrapper">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <script>
+      const dropdown = document.querySelector('.dropdown');
+      const submenu = document.querySelector('.submenu');
+
+      dropdown.addEventListener('click', (e) => {
+        e.preventDefault();
+        submenu.classList.toggle('show');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+          submenu.classList.remove('show');
+        }
+      });
+    </script>
   </body>
 </html>
