@@ -3,42 +3,69 @@
   <head>
     <title>Datorikas Portfolio</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index.js" />
   </head>
   <body>
     <nav class="navbar">
       <ul class="nav-list">
         <li><a href="index.html">Sākums</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#teksta-apstrade">Teksta apstrāde</a></li>
-        <li><a href="#izklajlapas">Izklājlapas</a></li>
+        <li><a href="#about">Microsof Office</a></li>
+        <li><a href="#izklajlapas">3D modelēšana</a></li>
         <li><a href="#video">Video</a></li>
         <li><a href="index2.html">Individuāla tēma</a></li>
         <li class="dropdown">
           <a href="#atteli">Attēlu apstrāde</a>
-          <ul class="submenu"> <!-- выпадающее меню -->
-            <li><a href="#rakstgrafika">Rakstgrafika</a></li> <!-- подпункт 1 -->
-            <li><a href="#vektorgrafika">Vektorgrafika</a></li> <!-- подпункт 2 -->
+          <ul class="submenu">
+            <li><a href="#rakstgrafika">Rakstgrafika</a></li>
+            <li><a href="#vektorgrafika">Vektorgrafika</a></li>
           </ul>
         </li>
       </ul>
     </nav>
-    <h1>Ko es apgūvu datorikas stundas?</h1>
-    <ol>
-      <li><h2>Kā stradāt ar Microsoft Office</h2></li>
-      <img
-        src="https://www.logo.wine/a/logo/Office_Online/Office_Online-Logo.wine.svg"
-        alt="Office"
-      />
-      <li><h2>Kā strādāt ar Gimp un TinkerCad</h2></li>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/The_GIMP_icon_-_gnome.svg/960px-The_GIMP_icon_-_gnome.svg.png?20220110174659"
-        alt="Gimp"
-      />
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Logo-tinkercad-wordmark.svg/1280px-Logo-tinkercad-wordmark.svg.png?20191017154918"
-        alt="TinkerCad"
-      />
-    </ol>
+    <section id="sakums" class="page">
+      <h1>Ko es apgūvu datorikas stundas?</h1>
+      <ol class="skills">
+        <li><h2>Kā stradāt ar Microsoft Office</h2></li>
+        <img
+          src="https://www.logo.wine/a/logo/Office_Online/Office_Online-Logo.wine.svg"
+          alt="Office"
+        />
+        <li><h2>Kā strādāt ar Gimp un TinkerCad</h2></li>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/The_GIMP_icon_-_gnome.svg/960px-The_GIMP_icon_-_gnome.svg.png?20220110174659"
+          alt="Gimp"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Logo-tinkercad-wordmark.svg/1280px-Logo-tinkercad-wordmark.svg.png?20191017154918"
+          alt="TinkerCad"
+        />
+        <li><h2>Kā strādāt ar video redaktoriem</h2></li>
+        <img
+          src="https://1000logos.net/wp-content/uploads/2025/01/CapCut-Logo.png"
+          alt="CapCut"
+        />
+      </ol>
+    </section>
+    <section id="office" class="page">
+      <h1>Microsoft Office</h1>
+      <div class="cards">
+        <div class="card">
+          <img src="img/excel.png" alt="Excel Logo" class="image"/>
+        </div>
+
+        <div class="card">
+         <p> Microsoft Office ir programmatūras komplekts, kas ietver dažādas
+        lietojumprogrammas, piemēram, Word, Excel, PowerPoint un Outlook. Šīs
+        programmas tiek plaši izmantotas gan personīgajā, gan profesionālajā
+        dzīvē, lai veiktu dažādus uzdevumus, piemēram, dokumentu izveidi, datu
+        analīzi, prezentāciju veidošanu un e-pasta pārvaldību.</p>
+        </div>
+      </div>
+    </section>
+    <section id="3d" class="page"></section>
+    <section id="video" class="page"></section>
+    <section id="atteli" class="page"></section>
+
     <div class="wrapper">
       <span></span>
       <span></span>
@@ -52,18 +79,47 @@
       <span></span>
     </div>
     <script>
-      const dropdown = document.querySelector('.dropdown');
-      const submenu = document.querySelector('.submenu');
+      const dropdown = document.querySelector(".dropdown");
+      const submenu = document.querySelector(".submenu");
 
-      dropdown.addEventListener('click', (e) => {
+      dropdown.addEventListener("click", (e) => {
         e.preventDefault();
-        submenu.classList.toggle('show');
+        submenu.classList.toggle("show");
       });
 
-      document.addEventListener('click', (e) => {
+      document.addEventListener("click", (e) => {
         if (!dropdown.contains(e.target)) {
-          submenu.classList.remove('show');
+          submenu.classList.remove("show");
         }
+      });
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          /* tilt */
+
+          const rotateX = (y - centerY) / 8;
+          const rotateY = (centerX - x) / 8;
+
+          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+
+          /* glow */
+
+          card.style.setProperty("--x", x + "px");
+          card.style.setProperty("--y", y + "px");
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+        });
       });
     </script>
   </body>
