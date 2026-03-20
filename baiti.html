@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Lejuplades kalkulators</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Lejuplades kalkulators</h1>
+    <p>
+    Aprēķināt cik daudz info var lejuplādēt <br>
+
+    <input type="number" id="seconds" placeholder="Sekundes"> <br>
+    sekundēs laikā, ja lejupielādes ātrums ir 25 MB/s. <br>
+    
+    <div style="margin: 20px 0;">
+        <label style="margin-right: 20px;">
+            <input type="radio" name="unit" value="KB" checked> <b>KB</b> (kilobyte)
+        </label>
+        <label>
+            <input type="radio" name="unit" value="KiB"> <b>KiB</b> (kibibyte)
+        </label>
+    </div><b>
+    ATBILDE:</b> <br>
+    <input type="text" id="result" readonly style="background-color: #f0f0f0; cursor: not-allowed;">
+</p>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin: 10px;
+        }
+        p {
+            font-size: 18px;
+            
+        }
+        h1 {
+            color: #2b74e3;
+            text-align: center;
+        }
+    </style>
+    <script>
+        const secondsInput = document.getElementById('seconds');
+        const resultInput = document.getElementById('result');
+        const unitRadios = document.querySelectorAll('input[name="unit"]');
+        
+        function calculate() {
+            const seconds = parseFloat(secondsInput.value) || 0;
+            const unit = document.querySelector('input[name="unit"]:checked').value;
+            
+            // 25 MB/s * seconds = загруженные MB
+            // 1 MB = 1,000,000 байт
+            const bytes = 25 * 1000000 * seconds;
+            
+            let result;
+            if (unit === 'KB') {
+                // KB = байты / 1000
+                result = bytes / 1000;
+            } else {
+                // KiB = байты / 1024
+                result = bytes / 1024;
+            }
+            
+            resultInput.value = result.toFixed(2) + ' ' + unit;
+        }
+        
+        secondsInput.addEventListener('input', calculate);
+        unitRadios.forEach(radio => radio.addEventListener('change', calculate));
+    </script>
+
+</body>
+</html>
