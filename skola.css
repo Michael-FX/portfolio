@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: navy;
+  padding: 10px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+  height: 1142px;
+  background-image: url("skola.jpeg");
+  background-repeat: repeat-y; /* Только по вертикали */
+  background-position: center;
+  background-size: 200px auto;
+}
+/*
+nav img {
+  width: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  height: auto;
+  background-repeat: repeat;
+  z-index: 0;
+  
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 50px;
+  margin-left: auto;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+nav button {
+  padding: 8px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 128, 0.723);
+  color: #ffffff;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+nav li a {
+  color: white;
+  text-decoration: none;
+}
+nav button:active {
+  background-color: rgba(0, 0, 128, 0.9);
+}
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
