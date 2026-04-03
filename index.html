@@ -1,29 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
+<head> 
     <title>Datorikas Portfolio</title>
     <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="index.js" />
-  </head>
-  <body>
+</head>
+<body>
     <nav class="navbar">
       <ul class="nav-list">
-        <li><a href="index.html">Sākums</a></li>
-        <li><a href="#about">Microsof Office</a></li>
-        <li><a href="#izklajlapas">3D modelēšana</a></li>
+        <li><a href="#sakums">Sākums</a></li>
+        <li><a href="#office">Microsof Office</a></li>
+        <li><a href="#3d">3D modelēšana</a></li>
         <li><a href="#video">Video</a></li>
-        <li><a href="index2.html">Individuāla tēma</a></li>
+        <li><a href="otrais.html">Individuāla tēma</a></li>
         <li class="dropdown">
-          <a href="#atteli">Attēlu apstrāde</a>
+          <a href="#">Grafika</a>
           <ul class="submenu">
-            <li><a href="#rakstgrafika">Rakstgrafika</a></li>
-            <li><a href="#vektorgrafika">Vektorgrafika</a></li>
+            <li><a href="#logo">Logo</a></li>
+            <li><a href="#gif">Gif</a></li>
           </ul>
         </li>
       </ul>
     </nav>
+
+    <div class="container">
     <section id="sakums" class="page">
-      <h1>Ko es apgūvu datorikas stundas?</h1>
+      <h1>Ko es apgūvu datorikas stundas???</h1>
       <ol class="skills">
         <li><h2>Kā stradāt ar Microsoft Office</h2></li>
         <img
@@ -58,13 +59,73 @@
         lietojumprogrammas, piemēram, Word, Excel, PowerPoint un Outlook. Šīs
         programmas tiek plaši izmantotas gan personīgajā, gan profesionālajā
         dzīvē, lai veiktu dažādus uzdevumus, piemēram, dokumentu izveidi, datu
-        analīzi, prezentāciju veidošanu un e-pasta pārvaldību.</p>
+        analīzi, prezentāciju veidošanu un e-pasta pārvaldību. </p>
         </div>
       </div>
     </section>
-    <section id="3d" class="page"></section>
-    <section id="video" class="page"></section>
-    <section id="atteli" class="page"></section>
+    <section id="3d" class="page">
+      <h1>3D modelēšana</h1>
+      <div class="cards">
+        <div class="card">
+          <img src="/My portfolio/img/detail.png" alt="TinkerCad Logo" class="image"/>
+        </div>
+
+        <div class="card">
+          <p>3D modelēšana ir process, kurā tiek radīti trīsdimensionāli objekti, izmantojot datorprogrammas. 
+            Mēs arī iemācījāmies programmā TinkerCad izveidot 3D objektus, proti, kuba skaldnes, kuras pēc tam varētu savienot vienā kubā.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="video" class="page">
+      <h1>Video rediģēšana</h1>
+      <div class="cards">
+        <div class="card">
+          <video width="320" height="240"  autoplay><source src="/My portfolio/img/video1.mov"></video>
+        </div>
+
+        <div class="card">
+          <p>
+            Video rediģēšana ietver dažādas darbības, piemēram, klipu griešanu, pāreju pievienošanu, krāsu korekciju, skaņas rediģēšanu un efektu pielietošanu. 
+            Es to darīju izmantojot programmu, kas saucas <b>CapCut</b>, un es iemācījos, kā apvienot vairākus video klipus vienā, pievienot pārejas un mūziku, kā arī veikt krāsu korekciju, lai uzlabotu video kvalitāti.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="gif" class="page">
+      <h1>Gif</h1>
+      <div class="cards">
+        
+
+        <div class="card">
+          <p>GIF (Graphics Interchange Format) ir attēlu formāts, kas atbalsta animāciju. 
+            GIF faili satur vairākus attēlus, kas tiek rādīti secīgi, radot kustības efektu. 
+            Es iemācījos izveidot GIF animācijas, izmantojot programmu GIMP, un es varēju apvienot vairākus attēlus, lai radītu vienkāršu animāciju.
+          </p>
+        </div>
+        <div class="card">
+          <img src="/My portfolio/img/my gif.gif" alt="Gif" class="image"/>
+        </div>
+      </div>
+    </section>
+    <section id="logo" class="page">
+      <h1>Logo</h1>
+      <div class="cards">
+        
+
+        <div class="card">
+          <p>Logo ir grafiskais elements, kas tiek izmantots kā uzņēmuma identitātes simbols. 
+            Mums vajadzēja to darīt par modernu un radošu kulinārijas zīmolu "KUK", kas specializējas eco–friendly kūkās un konditorejas izstrādājumos.
+
+          </p>
+        </div>
+        <div class="card">
+          <img src="/My portfolio/img/logo.png" alt="Logo" class="image"/>
+        </div>
+      </div>
+    </section>
+
+</div>
 
     <div class="wrapper">
       <span></span>
@@ -79,48 +140,22 @@
       <span></span>
     </div>
     <script>
-      const dropdown = document.querySelector(".dropdown");
-      const submenu = document.querySelector(".submenu");
+  const dropdown = document.querySelector(".dropdown");
+  const submenu = document.querySelector(".submenu");
+  const dropdownLink = dropdown.querySelector("a"); // ссылка Grafika
 
-      dropdown.addEventListener("click", (e) => {
-        e.preventDefault();
-        submenu.classList.toggle("show");
-      });
+  dropdown.addEventListener("click", (e) => {
+    if (e.target === dropdownLink) {
+      e.preventDefault(); // только для клика по Grafika
+      submenu.classList.toggle("show");
+    }
+  });
 
-      document.addEventListener("click", (e) => {
-        if (!dropdown.contains(e.target)) {
-          submenu.classList.remove("show");
-        }
-      });
-      const cards = document.querySelectorAll(".card");
-
-      cards.forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-          const rect = card.getBoundingClientRect();
-
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          /* tilt */
-
-          const rotateX = (y - centerY) / 8;
-          const rotateY = (centerX - x) / 8;
-
-          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-
-          /* glow */
-
-          card.style.setProperty("--x", x + "px");
-          card.style.setProperty("--y", y + "px");
-        });
-
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "rotateX(0) rotateY(0) scale(1)";
-        });
-      });
-    </script>
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      submenu.classList.remove("show");
+    }
+  });
+</script>
   </body>
 </html>
