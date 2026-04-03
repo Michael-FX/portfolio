@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Datorikas Portfolio</title>
+    <link rel="stylesheet" href="otrais.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="index.html#sakums">Sākums</a></li>
+        <li><a href="index.html#office">Microsof Office</a></li>
+        <li><a href="index.html#3d">3D modelēšana</a></li>
+        <li><a href="index.html#video">Video</a></li>
+        <li><a href="index2.html">Individuāla tēma</a></li>
+        <li class="dropdown">
+          <a href="#">Grafika</a>
+          <ul class="submenu">
+            <li><a href="index.html#logo">Logo</a></li>
+            <li><a href="index.html#gif">Gif</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <h1>Social Engineering</h1>
+    <div class="text">
+      Social engineering is the psychological manipulation of people into performing actions or divulging confidential information, bypassing technical security measures by targeting human emotion and trust. Attackers often pose as trusted authority figures or brands, creating urgency or fear to trick victims into handing over passwords, personal data, or access to systems.
+    </div>
+    <div class="img">
+      <img src="img/plakats.png" alt="">
+    </div>
+      
+    <script>
+      const dropdown = document.querySelector(".dropdown");
+      const submenu = document.querySelector(".submenu");
+      const dropdownLink = dropdown.querySelector("a"); // ссылка Grafika
+
+      dropdown.addEventListener("click", (e) => {
+        if (e.target === dropdownLink) {
+          e.preventDefault(); // только для клика по Grafika
+          submenu.classList.toggle("show");
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) {
+          submenu.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>
