@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>dzer</title>
+  </head>
+  <body>
+    <script>
+      function maksa() {
+        let dz = document.getElementsByName("drink");
+        for (i = 0; i < dz.length; i++) {
+          if (dz[i].checked)
+            document.getElementById("price").innerText = dz[i].value + " EUR";
+        }
+      }
+    </script>
+    <p>Izvēlies dzērienu:</p>
+    <form>
+        <input type="radio" id="kafija" name="drink" value="3.60" />  
+      <label for="kafija">kafija</label><br />
+        <input type="radio" id="sula" name="drink" value="2.50" />  
+      <label for="sula">sula</label><br />
+        <input type="radio" id="kakao" name="drink" value="3.20" />  
+      <label for="kakao">kakao</label><br /><br />
+      <input type="button" id="poga" value="Jāmaksā" onclick="maksa()" />
+      <span id="price"></span>
+    </form>
+    <style>
+      body {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 50px;
+        padding: 20px;
+      }
+      input[type="button"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 40px;
+        font-weight: bold;
+        margin-top: 30px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      input[type="button"]:hover {
+        background-color: #45a049;
+      }
+      input[type="radio"] {
+        width: 30px;
+        height: 30px;
+      }
+    </style>
+  </body>
+</html>
